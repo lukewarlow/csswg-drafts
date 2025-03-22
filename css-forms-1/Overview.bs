@@ -599,7 +599,7 @@ spec:css-forms-1; type:value; for:/; text:::placeholder
   <pre class=prod>
   &lt;control-value()> = control-value( <<type>>? )
 
-  <dfn><<type>></dfn> = '<' [ number | string ] '>'
+  <dfn><<type>></dfn> = '<' [ number | string | color ] '>'
   </pre>
 
   If used on a pseudo-element, it is evaluated against its originating element.
@@ -747,6 +747,18 @@ input[type=radio]:checked::checkmark {
     width: 100%;
 }
 ```
+
+## Color inputs ## {#stylesheet-color}
+
+ISSUE(11837): Color input styles need refining.
+
+```css
+::color-swatch {
+	border: 1px solid currentColor;
+	background: linear-gradient(control-value(<color>)),
+        linear-gradient(to bottom right, black 50%, white 50%);
+}
+
 ## Selects & buttons ## {#stylesheet-select-button}
 
 ```css
